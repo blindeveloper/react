@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+    <script src='https://fb.me/react-15.1.0.js'></script>
+    <script src='https://fb.me/react-dom-15.1.0.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js'></script>
+</head>
+<body>
+    <div id='root'></div>
+
+    <script type="text/babel">
+        const rootElement = document.getElementById('root')
+
+        const Message = props => <div>{props.msg}</div>
+        const element = (
+            <div className="container">
+                <Message msg="Hello react"/>
+                <Message msg="From here"/>
+            </div>
+        )
+
+        ReactDOM.render(element, rootElement)
+    </script>
+</body>
+</html>
