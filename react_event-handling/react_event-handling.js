@@ -1,5 +1,4 @@
 const state = {eventCount:0 , username: ''}
-const element = <h2>dedede</h2>
 const App = () => {
   return (
     <div>
@@ -19,7 +18,7 @@ const setState = (newState) => {
   renderApp();
 }
 const renderApp = () => {
-  ReactDOM.render(App(), document.getElementById('app'))
+  ReactDOM.render(App(), document.getElementById('root'))
 }
 const setUsername = (event) => {
   setState({username: event.target.value})
