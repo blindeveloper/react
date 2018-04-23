@@ -6,3 +6,6 @@
 no db calls, just calling new value, predicable, not changing value passed to them
 #impure functions
 may call db, may averwrite values to passed to them
+
+#reduce composition
+when one redusor can call another one. it is better to split reduser lodig to separeta for single risponsability approach
