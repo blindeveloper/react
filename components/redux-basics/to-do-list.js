@@ -1,3 +1,5 @@
+const {combineReducers, createStore} = Redux
+
 const todo = (state, action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -17,6 +19,15 @@ const todo = (state, action) => {
   }
 }
 
+const visibilityFilter = (state = 'SHOW_ALL', action) => {
+  switch (action.type) {
+    case 'SET_FILTER':
+      return action.filter
+    default:
+      return state
+  }
+}
+
 const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -31,8 +42,11 @@ const todos = (state = [], action) => {
   }
 }
 
-const {createStore} = Redux
-const store = createStore(todos)
+const todoApp = combineReducers({
+  todos,
+  visibilityFilter
+})
+const store = createStore(todoApp)
 
 console.log('store: ', store);
 console.log('init: ', store.getState());
@@ -42,17 +56,20 @@ store.dispatch({
   text: 'Hello',
   id: 345678654
 })
-
 store.dispatch({
   type: 'ADD_TODO',
   text: 'Hello 2',
   id: 34567865444
 })
-
 store.dispatch({
   type: 'TOGGLE',
   id: 345678654
 })
+store.dispatch({
+  type:'SET_FILTER',
+  filter: 'HIDE_ALL'
+})
+
 console.log('after toggle: ', store.getState());
 
 // tests
